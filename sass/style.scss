@@ -1,0 +1,43 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/css3/transition";
+
+$bgc: #f7d034;
+$font-color: #fff;
+$box-shadow: #f7ba59;
+$text-shadow: rgba(0, 0, 0, .4);
+
+.button{
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  position: relative;
+  background-color: $bgc;
+  color: $font-color;
+  text-align: center;
+  text-decoration: none;
+  line-height: 54px;
+  box-sizing: border-box;
+  @include border-radius(4px);
+  @include box-shadow(0 7px 0 $box-shadow);
+  @include text-shadow(0 1px 1px $text-shadow);
+  //@include transition(all .3s linear);
+  margin-top: 20px;
+  margin-left: 20px;
+  &::before,::after{
+    display: block;
+    content: "";
+    position: absolute;
+    z-index: -1; /* 影の部分 */
+  }
+  &:hover{
+    top: 4px;
+    @include box-shadow(0 3px 0 $box-shadow);
+    text-decoration: none;
+    color: $font-color;
+  }
+  &:active{
+    //top: -4px;
+    @include box-shadow(none);
+  }
+}
